@@ -1,0 +1,138 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+
+public partial class Edit_disable_record : System.Web.UI.Page
+{
+    my_code_file obj1 = new my_code_file();
+    SqlConnection con;
+    String disable;
+    private void vc()
+    {
+        SqlCommand cmd = new SqlCommand("select * from village_council", con);
+        SqlDataReader r;
+        con.Open();
+        r = cmd.ExecuteReader();
+        while (r.Read())
+        {
+            drpvc.Items.Add(r["vc_name"].ToString());
+        }
+        r.Close();
+        con.Close();
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["sec_id"] == null)
+        {
+            Response.Redirect("SecteryLoign.aspx");
+        }
+        else
+        {
+            con = new SqlConnection(obj1.cons);
+            if (Page.IsPostBack == false)
+            {
+                vc();
+            }
+            disable = Context.Request.QueryString["abc"].ToString();
+            if (Page.IsPostBack == false)
+            {
+                SqlCommand cmd = new SqlCommand("select * from disable_record where dis_id= '" + disable + "'", con);
+                SqlDataReader r;
+                con.Open();
+                r = cmd.ExecuteReader();
+                if (r.Read())
+                {
+                    lbldisableid.Text = r["dis_id"].ToString();
+                    drpvc.SelectedItem.Text = r["vc_name"].ToString();
+                    drpvillage.SelectedItem.Text = r["village_name"].ToString();
+
+                    txtname.Text = r["name"].ToString();
+                    txtnic.Text = r["nic"].ToString();
+                    txtdob.Text = r["dob"].ToString();
+                    txtcontactno.Text = r["contact_no"].ToString();
+                    txtdistype.Text = r["type"].ToString();
+
+                    r.Close();
+                    con.Close();
+                }
+                else
+                {
+                    r.Close();
+                    con.Close();
+                }
+            }
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        SqlCommand cmd = new SqlCommand("select * from disable_record where dis_id= '" + lbldisableid.Text + "'", con);
+        con.Open();
+        SqlDataReader r;
+        r = cmd.ExecuteReader();
+        if (r.Read())
+        {
+            r.Close();
+            con.Close();
+            SqlCommand cmd1 = new SqlCommand("update disable_record set vc_name='" + drpvc.SelectedItem + "',village_name='" + drpvillage.SelectedItem + "',name='" + txtname.Text + "',nic='" + txtnic.Text + "',dob='" + txtdob.Text + "',contact_no='" + txtcontactno.Text + "',type='" + txtdistype.Text + "'where dis_id='" + lbldisableid.Text + "'", con);
+            con.Open();
+            cmd1.ExecuteNonQuery();
+            con.Close();
+            lblmsg.Text = "Record Updated Sucessfully";
+            lblmsg.ForeColor = Color.Green;
+
+        }
+        else
+        {
+            r.Close();
+            con.Close();
+            lblmsg.Text = "Record Not eixst or either deleted";
+            lblmsg.ForeColor = Color.Red;
+        }
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        SqlCommand cmd = new SqlCommand("select * from disable_record where dis_id= '" + lbldisableid.Text + "'", con);
+        con.Open();
+        SqlDataReader r;
+        r = cmd.ExecuteReader();
+        if (r.Read())
+        {
+            r.Close();
+            con.Close();
+            SqlCommand cmd1 = new SqlCommand("delete from disable_record where dis_id='" + lbldisableid.Text + "'", con);
+            con.Open();
+            cmd1.ExecuteNonQuery();
+            con.Close();
+            lblmsg.Text = "Record Deleted Sucessfully";
+            lblmsg.ForeColor = Color.Red;
+
+        }
+        else
+        {
+            r.Close();
+            con.Close();
+            lblmsg.Text = "Record Not eixst or either deleted";
+            lblmsg.ForeColor = Color.Red;
+        }
+    }
+    protected void drpvc_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        drpvillage.Items.Clear();
+        SqlCommand cmd = new SqlCommand("select * from village where vc_name='" + drpvc.SelectedItem + "'", con);
+        SqlDataReader r;
+        con.Open();
+        r = cmd.ExecuteReader();
+        while (r.Read())
+        {
+            drpvillage.Items.Add(r["village_name"].ToString());
+        }
+        r.Close();
+        con.Close();
+    }
+}

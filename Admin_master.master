@@ -1,0 +1,195 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin_master.master.cs" Inherits="Admin_master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Village Council Web</title>
+        <!-- CSS -->
+         <link href="assets/style.css" rel="stylesheet" />
+        <link href="assets/bootstrap-4.6.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="assets/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet" />
+        <!-- CSS -->
+
+        <!-- JS -->
+       <script src="assets/jQuery/jquery.js"></script>
+    <script src="assets/bootstrap-4.6.1-dist/js/bootstrap.min.js"></script>
+        <!-- JS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+<style>
+*{
+font-family: 'Roboto', sans-serif;}
+</style>      
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div class="container-fluid"> 
+            <div class="row" style="background: #f5f8fd;"> 
+                 <div class="col-11 mx-auto">
+        <!-- ***NAVBAR*** -->
+                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 5px;">
+  <a class="navbar-brand animate__fadeIn" href="SecteryHome.aspx">Village Council Web App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="SecteryHome.aspx">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown" style ="">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Add
+        </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="Add_School_information.aspx">School Information</a>
+          <a class="dropdown-item" href="add_school_ptc.aspx">School PTC</a>
+             <a class="dropdown-item" href="add_school_sthrength.aspx">School Sthrength</a>
+             <a class="dropdown-item" href="add_school_facilities.aspx">School Facilities</a>
+              <a class="dropdown-item" href="add_birth_record.aspx">Birth Record</a>
+              <a class="dropdown-item" href="add_death_record.aspx">Death Record</a>
+              <a class="dropdown-item" href="add_disable_record.aspx">Disable Record</a>
+              <a class="dropdown-item" href="add_marriages_records.aspx">Marriage Record</a>
+              <a class="dropdown-item" href="add_poor_record.aspx">Poor Record</a>
+              <a class="dropdown-item" href="add_application_water.aspx">Application Water</a>
+              <a class="dropdown-item" href="add_infund.aspx">Infund</a>
+              <a class="dropdown-item" href="add_outfund.aspx">Outfund</a>
+      </li>
+      <li class="nav-item dropdown" style =" margin-right: 91px">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          View
+        </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href=" view_school_information.aspx">School Information</a>
+          <a class="dropdown-item" href=" view_school_ptc.aspx">School PTC</a>
+          <a class="dropdown-item" href=" view_school_strenght.aspx">School Sthrength</a>
+          <a class="dropdown-item" href=" view_school_facilities.aspx">School Facilities</a>
+          <a class="dropdown-item" href=" view_birth_record.aspx">Birth Record</a>
+          <a class="dropdown-item" href="view_death_record.aspx">Death Record</a>
+          <a class="dropdown-item" href="view_disable_record.aspx">Disable Record</a>
+          <a class="dropdown-item" href="view_marriage_record.aspx">Marriage Record</a>
+          <a class="dropdown-item" href="view_poor_record.aspx">Poor Record</a>
+          <a class="dropdown-item" href="view_application_water.aspx">Application Water</a>
+          <a class="dropdown-item" href="view_infund.aspx">Infund</a>
+          <a class="dropdown-item" href="view_outfund.aspx">Outfund</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="SecteryProfile.aspx">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Secetery_Change_Password.aspx">Change Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-danger" href="Default.aspx">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+                     <!-- ***NAVBAR*** -->
+		
+
+                                     <!-- ***SLIDER*** -->
+                     
+                        <!-- ***SLIDER*** -->
+
+                        <!-- Presentation -->
+
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                       
+<!-- Presentation -->
+                           
+  
+
+       <!-- Services -->
+                     <!-- Services -->
+        
+
+        
+
+              <!-- Footer -->
+    <hr />
+
+        <footer style="margin-top:40px" class="fadeInUp">
+            <div class="container-fluid" style="padding:0px">
+                <div class="row" style=" background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(134, 143, 150, 1) ,rgba(89, 97, 100, 1)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(134, 143, 150, 1), rgba(89, 97, 100, 1)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;border-radius: 0px;">
+                    <div class="col-sm-10 col-md-4 col-lg-3 col-xl-3 bounce-top" style="padding-top: 10px">
+                        <h4  style="border-bottom:1px solid black; display:inline-block">About Us</h4>
+                        <div class="footer-box-text">
+	                        <p>
+	                        	District Council Members/Secretary/Birth Record/Death Record/Disable Record/Marriage Record/School Information/School Strength/School Facilities.
+
+	                        </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-4 col-lg-3 col-xl-3" style="padding-top: 10px">
+                        <h4  style="border-bottom:1px solid black; display:inline-block">Email Updates</h4>
+                        <div class="footer-box-text footer-box-text-subscribe">
+                        	<p>Enter your email and you'll be one of the first to get new updates:</p>
+                        	<form role="form" action="assets/subscribe.php" method="post">
+		                    	<div class="form-group">
+		                    		<label class="sr-only" for="subscribe-email">Email address</label>
+		                        	<input type="text" name="email" placeholder="Email..." class="form-control" id="subscribe-email">
+		                        </div>
+		                    </form>
+		                    <p class="success-message"></p>
+		                    <p class="error-message"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-4 col-lg-3 col-xl-3" style="padding-top: 10px">
+                        <h4  style="border-bottom:1px solid black; display:inline-block">About Developer</h4>
+                        <div class="footer-box-text footer-box-text-contact">
+	                        <p><i class="fa fa-map-marker"></i> Raja Usman Murad</p>
+	                        <p><i class="fa fa-phone"></i> Phone: +92 306 0872682</p>
+	                        <p><i class="fa fa-envelope"></i> Email: <a class="text-white" href="">usmankiyani501@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-4 col-lg-3 col-xl-3" style="padding-top: 10px">
+                        <h4  style="border-bottom:1px solid black; display:inline-block">Contact Us</h4>
+                        <div class="footer-box-text footer-box-text-contact">
+	                        <p><i class="fa fa-map-marker"></i> Raja Usman Murad</p>
+	                        <p><i class="fa fa-phone"></i> Phone: +92 306 0872682</p>
+	                        <p><i class="fa fa-envelope"></i> Email: <a class="text-white" href="">usmankiyani501@gmail.com</a></p>
+                        </div>
+                    </div>
+                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding: 0px;margin-top:35px;">
+                    <p class="text-center text-white wow animated bounceInUp m-0" style="background:rgba(89, 97, 100, 1);height: 35px;line-height: 35px; border-radius: 0px;">Copyright 2018-22 VCWP - All rights reserved</p>
+                         </div>
+                </div>
+
+            </div>
+        </footer>
+      <!-- Footer -->
+                      </div>
+            </div>
+       </div>
+        
+    </form>
+</body>
+</html>
